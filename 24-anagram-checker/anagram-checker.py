@@ -14,27 +14,34 @@ def isAnagram(first, second):
     second = re.sub('[^A-Za-z0-9]', '', second)
 
     if len(first) != len(second):
+        print "False: '%s' != '%s' different lengths" % (first, second)
         return False
 
     if first == second:
+        print "True: '%s' == '%s' same string of letters" % (first, second)
         return True
 
-    first_l = list(first)
-    second_l = list(second)
+    # first_l = list(first)
+    # second_l = list(second)
 
-    # Why are some methods called with dot notation,
-    # while others are called procedurally??
-    first_l.sort()
-    second_l.sort()
+    # # Why are some methods called with dot notation,
+    # # while others are called procedurally??
+    # first_l.sort()
+    # second_l.sort()
 
-    # This feels TOTALLY backwards!!
-    first = ''.join(first_l)
-    second = ''.join(second_l)
+    # # This feels TOTALLY backwards!!
+    # first = ''.join(first_l)
+    # second = ''.join(second_l)
+
+    # Maybe better?
+    first = ''.join(sorted(first))
+    second = ''.join(sorted(second))
 
     if first == second:
+        print "True: '%s' == '%s' same string of letters after sorting" % (first, second)
         return True
 
-    return "Don't Know Yet"
+    return False
 
 
 print isAnagram('o n; e', 'e ! n $ o')
