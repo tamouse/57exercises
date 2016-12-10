@@ -1,0 +1,9 @@
+{
+  "name": "57exercises",
+  "version": "1.0.0",
+  "description": "Working through Brian Hogan's _57 Exercises_",
+  "main": "index.js",
+  "repository": "git@github.com:tamouse/57exercises.git",
+  "author": "Tamara Temple <tamouse@gmail.com>",
+  "license": "none"
+}
