@@ -21,6 +21,7 @@ INVOICE_ITEM = """
 """
 
 class SelfCheckout:
+    # TODO: figure out how to do this without passing in std*
     def __init__(self, tax_rate=0.0, my_input=sys.stdin, my_output=sys.stdout):
         try:
             self.tax_rate = float(tax_rate)
@@ -30,6 +31,10 @@ class SelfCheckout:
         self.cart = Cart(self.tax_rate)
         self.input = my_input
         self.output = my_output
+
+    def run(self):
+        self.gather_items()
+        self.print_invoice()
 
     def gather_items(self):
 
