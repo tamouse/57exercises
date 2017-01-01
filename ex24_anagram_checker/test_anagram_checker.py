@@ -1,6 +1,6 @@
 
 import unittest
-from anagram_checker import AnagramChecker
+from ex24_anagram_checker.anagram_checker import AnagramChecker
 
 class AnagramCheckerTestCase(unittest.TestCase):
 
