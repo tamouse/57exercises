@@ -15,6 +15,6 @@ def retire_calc(retire_age, current_age):
 
     current_year = datetime.date.today().year
     years_to_retire = retire_age - current_age
-    retire_year = current_year + years_to_retire
+    retire_year = int(current_year + years_to_retire)
 
     return years_to_retire, retire_year
