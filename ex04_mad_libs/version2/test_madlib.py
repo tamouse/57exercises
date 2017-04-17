@@ -36,6 +36,9 @@ class TestMadLib(unittest.TestCase):
         words = {'a': "BLAH"}
         self.assertEqual(expected, madlib.render(words))
 
+    def test_next_prompt(self):
+        for prompt in self.madlib.next_prompt():
+            self.assertIn(prompt, self.prompts)
 
 if __name__ == '__main__':
     unittest.main()

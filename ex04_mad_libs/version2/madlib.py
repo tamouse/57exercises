@@ -9,3 +9,7 @@ class MadLib:
 
     def render(self, words):
         return self.template.format(**words)
+
+    def next_prompt(self):
+        for prompt in self.prompts():
+            yield prompt
