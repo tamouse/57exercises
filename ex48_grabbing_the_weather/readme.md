@@ -20,3 +20,8 @@ paramters:
 
 
 weather icon url: `http://openweathermap.org/img/w/<ICONID>.png`
+
+
+## weather.gov
+
+Current observation XML data: http://w1.weather.gov/xml/current_obs/
