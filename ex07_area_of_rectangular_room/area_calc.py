@@ -1,10 +1,11 @@
 
 SQFT_TO_SQM = 0.09290304
 
-class ArgumentError(Exception):
-    def __init__(self, argument, message):
-        self.argument = argument
-        self.message = message
+class CalcArgumentError(Exception):
+    def __init__(self, arg, msg):
+        self.argument = arg
+        self.message = msg
+
 
 def calc(length, width):
     """
@@ -16,21 +17,44 @@ def calc(length, width):
     >>> calc(10.0,5.0)
     (50.0, 4.645152)
 
-    >>> calc(10, 5.0)
-    Traceback (most recent call last):
-        ...
-    ArgumentError: (10, 'Length must be a float')
+    >>> calc(2,2)
+    (4.0, 0.37161216)
 
-    >>> calc(10.0, 5)
+    >>> calc("a", 2)
     Traceback (most recent call last):
         ...
-    ArgumentError: (5, 'Width must be a float')
+    CalcArgumentError: ('a', 'invalid input: Length must be a number greater than zero')
+
+    >>> calc(2, "a")
+    Traceback (most recent call last):
+        ...
+    CalcArgumentError: ('a', 'invalid input: Width must be a number greater than zero')
+
+    >>> calc(0, 1)
+    Traceback (most recent call last):
+        ...
+    CalcArgumentError: (0.0, 'invalid input: Length must be a number greater than zero')
+
+    >>> calc(1, 0)
+    Traceback (most recent call last):
+        ...
+    CalcArgumentError: (0.0, 'invalid input: Width must be a number greater than zero')
+
     """
 
-    if not isinstance(length, float):
-        raise ArgumentError(length, "Length must be a float")
-    if not isinstance(width, float):
-        raise ArgumentError(width, "Width must be a float")
+    try:
+        length = float(length)
+        if not length > 0.0:
+            raise ValueError
+    except ValueError as err:
+        raise CalcArgumentError(length, "invalid input: Length must be a number greater than zero")
+
+    try:
+        width = float(width)
+        if not width > 0.0:
+            raise ValueError
+    except ValueError as err:
+        raise CalcArgumentError(width, "invalid input: Width must be a number greater than zero")
 
     area_sqft = length * width
     area_sqm = area_sqft * SQFT_TO_SQM
@@ -38,4 +62,6 @@ def calc(length, width):
 
 if __name__ == '__main__':
     import doctest
-    doctest.testmod()
+    print("Running Doctests")
+    if (doctest.testmod()[0]) == 0:
+        print("PASSED!")
