@@ -1,9 +1,8 @@
+from ex08_pizza_party.calc import *
 
 numppl = input("How many people? ")
 numpizzas = input("How many pizzas? ")
 numslices = input("How many slices per pizza? ")
-
-from ex08_pizza_party.calc import *
 
 slicesPerPerson, slicesLeftOver = calc(numppl, numpizzas, numslices)
 
