@@ -26,8 +26,8 @@ be found at [https://hexdocs.pm/ex03_printing_quotes](https://hexdocs.pm/ex03_pr
 ## Startup
 
     mix new ex03_printing_quotes --module QUOTING
-	cd ex03_printing_quotes
-	mix test
+    cd ex03_printing_quotes
+    mix test
 
 ## Cleanup
 
