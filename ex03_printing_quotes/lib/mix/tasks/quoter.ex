@@ -1,5 +1,3 @@
-
-
 defmodule Mix.Tasks.Quoter do
 
   @moduledoc """
