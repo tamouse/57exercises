@@ -1,10 +1,47 @@
 .App {
-  text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.App--Sidebar {
+    flex: 1;
+    padding: 10px;
+    width: 35%;
+    background-color: #000;
+    color: #ccc;
+}
+
+.App--Sidebar ul {
+    list-style: none;
+}
+
+.App--Sidebar a,
+.App--Sidebar a:visited,
+.App--Sidebar a:active {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.App--Sidebar a:hover {
+    color: #ccffff;
+    text-decoration: underline;
+}
+
+.App--Sidebar header {
+    text-align: center;
+}
+
+.App--Main {
+    flex: 3;
+    padding: 10px;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 40px;
+    width: 40px;
+    margin: auto;
+  display: block;
 }
 
 .App-header {
