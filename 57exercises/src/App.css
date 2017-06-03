@@ -9,9 +9,20 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 180px;
   padding: 20px;
   color: white;
+}
+
+.App-header a,
+.App-header a:visited,
+.App-header a:active {
+    color: LightBlue;
+    text-decoration: none;
+}
+.App-header a:hover {
+    color: Azure;
+    text-decoration: underline;
 }
 
 .App-intro {
