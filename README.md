@@ -5,7 +5,12 @@ Branches are for working in a different language, for example, the
 `python3` branch for working with Python 3.x.
 
 
+**This** branch is for Elixir.
+
+
 ## Elixir stuff
+
+### Making a new project
 
 Creating a new elixir project:
 
@@ -36,7 +41,32 @@ end
 
 ```
 
+### Testing
 
+USE DOCTESTS OMGOMGOMGWTFBBQ!!!!
+
+In `./test/` create a file to match your code file(s) that contains:
+
+```elixir
+defModule MyModuleTest do
+  use ExUnit.Case
+  doctest MyModule
+end
+```
+
+Also, create a file called `./test/test_helper.exs` that contains:
+
+```elixir
+ExUnit.start()
+```
+
+When you want to run the tests, from the root of the project:
+
+    $ mix test
+
+should do it.
+
+### Making a runner
 
 Make a mix task to make running the program easier:
 
@@ -60,6 +90,10 @@ defmodule Mix.Tasks.TaskName do
   end
 end
 ```
+
+Then run with:
+
+    $ mix task_name
 
 See `ex03_printing_quotes/lib/mix/tasks/quoter.ex` for a neat example
 with IO to the console.
