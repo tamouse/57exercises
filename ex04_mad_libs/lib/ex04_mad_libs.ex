@@ -113,14 +113,18 @@ defmodule Ex04MadLibs do
       ["Now", "we", "have", "a", "pizza"]
 
       iex> Ex04MadLibs.replacer(["Now", "{pronoun}", "have", "a", "{food}"], ["we"])
-      ["Now", "we", "have", "a", "pizza"]
+      ["Now", "we", "have", "a", "{food}"]
 
       iex> Ex04MadLibs.replacer(["Now", "{pronoun}", "have", "a", "{food}"], [])
+      ["Now", "{pronoun}", "have", "a", "{food}"]
+
+      iex> Ex04MadLibs.replacer(["Now", "we", "have", "a", "pizza"], [])
       ["Now", "we", "have", "a", "pizza"]
 
 
   """
-  def replacer([], []), do: []
+  def replacer(phrase, []), do: phrase
+  def replacer([], _), do: []
   def replacer([head | tail], words) do
     if Regex.match?(~r/\{(.*?)\}/, head) do
       [ hd(words) | replacer(tail, tl(words)) ]
